@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className='wrapperHeader' style={{ height: '440px', width: '100vw', borderRadius: '0px', alignContent: "center" }}>
       <div style={{ marginLeft: '130px', marginRight: '130px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className={styles.footerTop}>
-          <button className={styles.footerButton}>Register Now So You Don't Miss Our Programs</button>
+          <button className={styles.footerButton}>Register Now So You Don&apos;t Miss Our Programs</button>
           <input type="email" placeholder="Enter your Email" className={styles.footerInput} />
           <button className={styles.footerSubscribe}>Subscribe Now</button>
         </div>
