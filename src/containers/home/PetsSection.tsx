@@ -9,12 +9,14 @@ interface PetsSectionProps {
   content: Array<React.ReactNode>;
   buttonText?: string
   columns?: number;
+  style?: React.CSSProperties
 }
 
-const PetsSection = ({ mainText, subMainText, content, buttonText, columns }: PetsSectionProps) => {
+const PetsSection = ({ mainText, subMainText, content, buttonText, columns, style }: PetsSectionProps) => {
 
   const gridStyle = {
-    gridTemplateColumns: `repeat(${columns}, 1fr)`
+    gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    ...style
   };
 
   return (
