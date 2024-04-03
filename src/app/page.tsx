@@ -1,95 +1,65 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Container from "@/components/Container/Container";
+import PetsSection from "@/containers/home/PetsSection";
+import BannerSection from "@/containers/home/BannerSection";
+import { blogData, petsData, productData } from "@/helpers/DummyJSON";
+import MainCard from "@/components/Card/MainCard";
+import ArticleCard from "@/components/Card/ArticleCard";
 
 export default function Home() {
+
+  const whatsNewcardElements: Array<React.ReactNode> = petsData.map(pet => (
+    <MainCard
+      key={pet.id}
+      imageSrc={pet.imageSrc}
+      title={`${pet.id} - ${pet.title}`}
+      gender={`Gene: ${pet.gender}`}
+      age={`Age: ${pet.age}`}
+      price={pet.price}
+    />
+  ));
+
+  const productCardElements: Array<React.ReactNode> = productData.map(product => (
+    <MainCard
+      key={product.id}
+      imageSrc={product.imageSrc}
+      title={`${product.title}`}
+      gender={`Product: ${product.gender}`}
+      age={`Size: ${product.age}`}
+      price={product.price}
+      promo={product.promo}
+    />
+  ));
+
+  const blogCardElements: Array<React.ReactNode> = blogData.map(blog => (
+    <ArticleCard
+      key={blog.id}
+      imageSrc={blog.imageSrc}
+      category={blog.keyword}
+      title={blog.title}
+      summary={blog.content}
+    />
+  ))
+
+  const sponsorCardElement = Array.from({ length: 7 }).map((_, index) => {
+    return <img key={index} src={`/images/sponsors/sponsor_${index + 1}.png`} alt={`sponsor_${index + 1}`}
+      style={{ mixBlendMode: 'multiply', justifyItems: 'center' }}
+    />
+  })
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <Container id="home" extended>
+      <PetsSection mainText="What's New" subMainText="Take A Look At Some Of Our Pets" content={whatsNewcardElements} />
+      <BannerSection />
+      <PetsSection mainText="Hard to choose right product for your pets?" subMainText="Our Products"
+        content={productCardElements}
+      />
+      <PetsSection subMainText="Proud to be part of Pet Sellers" buttonText="View all our sellers"
+        content={sponsorCardElement} columns={sponsorCardElement.length}
+      />
+      <BannerSection reverse />
+      <PetsSection mainText="You already Know" subMainText="Useful Pet Knowledge"
+        content={blogCardElements} columns={3}
+      />
+    </Container>
   );
 }
