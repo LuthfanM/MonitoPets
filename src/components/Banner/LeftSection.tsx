@@ -14,9 +14,7 @@ interface customleftstyles {
 }
 
 interface LeftSectionProps {
-  customleftstyles: customleftstyles & {
-    [key: string]: string | undefined;
-  };
+  customleftstyles: customleftstyles;
 }
 
 const LeftSection = styled.div<LeftSectionProps>`

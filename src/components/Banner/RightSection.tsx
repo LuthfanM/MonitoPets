@@ -9,9 +9,7 @@ interface customrightstyles {
 }
 
 interface RightSectionProps {
-  customrightstyles: customrightstyles & {
-    [key: string]: string | undefined;
-  };
+  customrightstyles: customrightstyles;
 }
 
 const RightSection = styled.div<RightSectionProps>`
