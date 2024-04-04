@@ -4,6 +4,7 @@ import BannerSection from "@/containers/home/BannerSection";
 import { blogData, petsData, productData } from "@/helpers/DummyJSON";
 import MainCard from "@/components/Card/MainCard";
 import ArticleCard from "@/components/Card/ArticleCard";
+import CustomTextArea from "@/components/TextArea/CustomTextArea";
 
 export default function Home() {
   const whatsNewcardElements: Array<React.ReactNode> = petsData.map((pet) => (
@@ -64,6 +65,13 @@ export default function Home() {
         style={{
           backgroundColor: `var(--primary-color)`,
         }}
+        textContent={
+          <CustomTextArea
+            title="One More Friend"
+            subTitle="Thousands More Fun!"
+            subtitle="Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!"
+          />
+        }
       />
       <PetsSection
         mainText="Hard to choose right product for your pets?"
@@ -83,6 +91,14 @@ export default function Home() {
         style={{
           backgroundColor: `var(--background-secondary-color)`,
         }}
+        textContent={
+          <CustomTextArea
+            title="Adoption"
+            subTitle="We need help. so do they."
+            subtitle="Adopt a pet and give it a home,
+            it will be love you back unconditionally."
+          />
+        }
       />
       <PetsSection
         mainText="You already Know"
