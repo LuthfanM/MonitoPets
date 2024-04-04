@@ -5,6 +5,7 @@ import { blogData, petsData, productData } from "@/helpers/DummyJSON";
 import MainCard from "@/components/Card/MainCard";
 import ArticleCard from "@/components/Card/ArticleCard";
 import CustomTextArea from "@/components/TextArea/CustomTextArea";
+import { FaPaw } from "react-icons/fa";
 
 export default function Home() {
   const whatsNewcardElements: Array<React.ReactNode> = petsData.map((pet) => (
@@ -94,6 +95,7 @@ export default function Home() {
         textContent={
           <CustomTextArea
             title="Adoption"
+            titleIcon={<FaPaw />}
             subTitle="We need help. so do they."
             subtitle="Adopt a pet and give it a home,
             it will be love you back unconditionally."

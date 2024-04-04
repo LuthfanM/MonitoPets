@@ -19,13 +19,14 @@ const MainCard: React.FC<CardProps> = ({ imageSrc, title, gender, age, price, pr
         <h3 className={styles.cardTitle}>{title}</h3>
         <div className={styles.cardInfo}>
           <span className={styles.cardGender}>{gender}</span>
-          <FaCircle className={styles.circleGrey} />
+          <FaCircle className={styles.circleGrey1} />
           <span className={styles.cardAge}>{age}</span>
         </div>
         <div className={styles.cardPrice}>{price}</div>
         {promo &&
           <div className={styles.cardPromo}>
             <span className={styles.promoIcon}>🎁</span>
+            <FaCircle className={styles.circleGrey1} />
             <span className={styles.promoText}>{promo}</span>
           </div>
         }
