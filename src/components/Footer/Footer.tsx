@@ -1,19 +1,43 @@
-import React from 'react';
-import styles from './Footer.module.css';
+import React from "react";
+import styles from "./Footer.module.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-import HorizontalLine from '../Helpers/HorizontalLine';
+import HorizontalLine from "../Helpers/HorizontalLine";
 
 const Footer = () => {
   return (
-    <footer className='wrapperHeader' style={{ height: '440px', width: '100vw', borderRadius: '0px', alignContent: "center" }}>
-      <div style={{ marginLeft: '130px', marginRight: '130px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <footer
+      className="wrapperHeader"
+      style={{
+        height: "440px",
+        width: "100vw",
+        borderRadius: "0px",
+        alignContent: "center",
+      }}
+    >
+      <div
+        style={{
+          marginLeft: "130px",
+          marginRight: "130px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <div className={styles.footerTop}>
-          <button className={styles.footerButton}>Register Now So You Don&apos;t Miss Our Programs</button>
-          <input type="email" placeholder="Enter your Email" className={styles.footerInput} />
-          <button className={styles.footerSubscribe}>Subscribe Now</button>
+          <button className={styles.footerButton}>
+            Register Now So You Don&apos;t Miss Our Programs
+          </button>
+          <div className={styles.wrapperFooterInput}>
+            <input
+              type="email"
+              placeholder="Enter your Email"
+              className={styles.footerInput}
+            />
+            <button className={styles.footerSubscribe}>Subscribe Now</button>
+          </div>
         </div>
         <nav className={styles.footerNav}>
           <ul className={styles.footerNavList}>

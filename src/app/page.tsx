@@ -62,7 +62,10 @@ export default function Home() {
         content={whatsNewcardElements}
       />
       <BannerSection
-        imageSrc="horizontal-adult-jumper-kiss.png"
+        imageSrc={{
+          url: "horizontal-adult-jumper-kiss",
+          styles: {},
+        }}
         style={{
           backgroundColor: `var(--primary-color)`,
         }}
@@ -70,7 +73,14 @@ export default function Home() {
           <CustomTextArea
             title="One More Friend"
             subTitle="Thousands More Fun!"
-            subtitle="Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!"
+            subtitle={{
+              text: "Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!",
+              styles: {
+                fontSize: "12px",
+                paddingLeft: "35%",
+              },
+            }}
+            status="right"
           />
         }
       />
@@ -87,7 +97,10 @@ export default function Home() {
         style={{ alignItems: "center" }}
       />
       <BannerSection
-        imageSrc="paw-hand-human.png"
+        imageSrc={{
+          url: "paw-hand-human",
+          styles: {},
+        }}
         reverse
         style={{
           backgroundColor: `var(--background-secondary-color)`,
@@ -97,10 +110,29 @@ export default function Home() {
             title="Adoption"
             titleIcon={<FaPaw />}
             subTitle="We need help. so do they."
-            subtitle="Adopt a pet and give it a home,
-            it will be love you back unconditionally."
+            subtitle={{
+              text: "Adopt a pet and give it a home,it will be love you back unconditionally.",
+              styles: {
+                fontSize: "12px",
+              },
+            }}
+            reverse={true}
+            status="left"
           />
         }
+        rightStyle={{
+          beforeLeft: "0",
+          beforeRight: "10%",
+          scaleX: "-1"
+        }}
+        leftStyle={{
+          top: '50%',
+          width: "auto",
+          bgImage: "rect_2",
+          translateX: '-50%',
+          scaleX: '2',
+          scaleY: '2'
+        }}
       />
       <PetsSection
         mainText="You already Know"

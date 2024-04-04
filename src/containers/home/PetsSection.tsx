@@ -26,7 +26,7 @@ const PetsSection = ({ mainText, subMainText, content, buttonText, columns, styl
           {mainText && <p style={{ textAlign: 'left' }}>{mainText}</p>}
           <h2 style={{ textAlign: 'left' }}>{subMainText}</h2>
         </div>
-        <CustomButton text={buttonText ? buttonText : 'View More'} type='white' icon={<FaAngleRight />} />
+        <CustomButton text={buttonText ? buttonText : 'View More'} type='transparent' icon={<FaAngleRight />} />
       </div>
       <div className={styles.cardsContainer} style={gridStyle}>
         {content}

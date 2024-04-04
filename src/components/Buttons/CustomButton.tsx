@@ -6,12 +6,12 @@ interface CustomButtonProps {
   onClick?: () => void; 
   className?: string;
   icon?: JSX.Element;
-  type?: 'black' | 'white'
+  type?: 'black' | 'transparent'
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({ text, type, onClick, className, icon }) => {
 
-const styleButton = type === 'white' ?  styles['whiteBg'] : styles['blackBg'];
+const styleButton = type === 'transparent' ?  styles['transparentBg'] : styles['blackBg'];
 
   return (
     <button className={`${styles.button} ${styleButton}`} onClick={onClick}>

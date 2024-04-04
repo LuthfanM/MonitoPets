@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./Home.module.css";
-import CustomButton from "@/components/Buttons/CustomButton";
-import { FaPlayCircle } from "react-icons/fa";
 import CustomTextArea from "@/components/TextArea/CustomTextArea";
 
 const PromotionalSection = () => {
@@ -11,7 +9,13 @@ const PromotionalSection = () => {
         <CustomTextArea
           title="One More Friend"
           subTitle="Thousands More Fun!"
-          subtitle="Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!"
+          subtitle={{
+            text: "Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!",
+            styles: {
+              fontSize: "16px"
+            }
+          }}
+          status="justify"          
         />
       </div>
       <div className={styles.rightColumn}>
