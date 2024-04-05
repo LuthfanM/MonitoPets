@@ -29,7 +29,7 @@ const CustomTextArea = ({
   };
 
   return (
-    <div style={{ zIndex: 100, width: "inherit", textAlign: status }}>
+    <div className={styles.customAreaContainer} style={{ zIndex: 100, width: "inherit", textAlign: status }}>
       <h1 className={styles.title}>
         {title} {titleIcon && titleIcon}{" "}
       </h1>

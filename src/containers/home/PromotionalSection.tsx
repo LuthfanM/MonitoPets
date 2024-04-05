@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import styles from "./Home.module.css";
 import CustomTextArea from "@/components/TextArea/CustomTextArea";
+import { useScreenDimensions } from "@/contexts/ScreenDimensionProvider";
 
 const PromotionalSection = () => {
+  const { width, height } = useScreenDimensions();
+
   return (
     <section className={styles.heroSection}>
       <div className={styles.leftColumn}>
@@ -12,10 +16,10 @@ const PromotionalSection = () => {
           subtitle={{
             text: "Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!",
             styles: {
-              fontSize: "16px"
-            }
+              fontSize: "16px",
+            },
           }}
-          status="justify"          
+          status={width < 768 ? "left" : "justify"}
         />
       </div>
       <div className={styles.rightColumn}>

@@ -14,7 +14,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, type, onClick, classN
 const styleButton = type === 'transparent' ?  styles['transparentBg'] : styles['blackBg'];
 
   return (
-    <button className={`${styles.button} ${styleButton}`} onClick={onClick}>
+    <button className={`${className} ${styles.button} ${styleButton}`} onClick={onClick}>
       <span className={styles.contentWrapper}>
         {text}
         {icon && <span className={styles.icon}>{icon}</span>}

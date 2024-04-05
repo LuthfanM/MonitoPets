@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/components/Container/Container";
 import PetsSection from "@/containers/home/PetsSection";
 import BannerSection from "@/containers/home/BannerSection";
@@ -6,8 +7,13 @@ import MainCard from "@/components/Card/MainCard";
 import ArticleCard from "@/components/Card/ArticleCard";
 import CustomTextArea from "@/components/TextArea/CustomTextArea";
 import { FaPaw } from "react-icons/fa";
+import { useScreenDimensions } from "@/contexts/ScreenDimensionProvider";
+import { MAX_WIDTH_PHONE } from "@/constants";
 
 export default function Home() {
+
+  const { width, height } = useScreenDimensions();
+
   const whatsNewcardElements: Array<React.ReactNode> = petsData.map((pet) => (
     <MainCard
       key={pet.id}
@@ -59,7 +65,7 @@ export default function Home() {
       <PetsSection
         mainText="What's New"
         subMainText="Take A Look At Some Of Our Pets"
-        content={whatsNewcardElements}
+        content={whatsNewcardElements}        
       />
       <BannerSection
         imageSrc={{
@@ -95,6 +101,7 @@ export default function Home() {
         content={sponsorCardElement}
         columns={sponsorCardElement.length}
         style={{ alignItems: "center" }}
+        hideIfMobile={width < MAX_WIDTH_PHONE ? true : false}
       />
       <BannerSection
         imageSrc={{
@@ -123,15 +130,15 @@ export default function Home() {
         rightStyle={{
           beforeLeft: "0",
           beforeRight: "10%",
-          scaleX: "-1"
+          scaleX: "-1",
         }}
         leftStyle={{
-          top: '50%',
+          top: "50%",
           width: "auto",
           bgImage: "rect_2",
-          translateX: '-50%',
-          scaleX: '2',
-          scaleY: '2'
+          translateX: "-50%",
+          scaleX: "2",
+          scaleY: "2",
         }}
       />
       <PetsSection

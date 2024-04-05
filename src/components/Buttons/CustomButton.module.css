@@ -59,3 +59,9 @@
   background-color: var(--neutral-color-gray-60);
   cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+  .button {
+      display: none;
+  }
+}
