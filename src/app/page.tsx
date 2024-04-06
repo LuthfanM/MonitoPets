@@ -11,7 +11,6 @@ import { useScreenDimensions } from "@/contexts/ScreenDimensionProvider";
 import { MAX_WIDTH_PHONE } from "@/constants";
 
 export default function Home() {
-
   const { width, height } = useScreenDimensions();
 
   const whatsNewcardElements: Array<React.ReactNode> = petsData.map((pet) => (
@@ -65,7 +64,8 @@ export default function Home() {
       <PetsSection
         mainText="What's New"
         subMainText="Take A Look At Some Of Our Pets"
-        content={whatsNewcardElements}        
+        content={whatsNewcardElements}
+        columns={width <= MAX_WIDTH_PHONE ? 2 : 4}        
       />
       <BannerSection
         imageSrc={{
@@ -94,14 +94,15 @@ export default function Home() {
         mainText="Hard to choose right product for your pets?"
         subMainText="Our Products"
         content={productCardElements}
+        columns={width <= MAX_WIDTH_PHONE ? 2 : 4}   
+        hideIfMobile={true}
       />
       <PetsSection
         subMainText="Proud to be part of Pet Sellers"
         buttonText="View all our sellers"
         content={sponsorCardElement}
-        columns={sponsorCardElement.length}
         style={{ alignItems: "center" }}
-        hideIfMobile={width < MAX_WIDTH_PHONE ? true : false}
+        hideIfMobile={width <= MAX_WIDTH_PHONE ? true : false}
       />
       <BannerSection
         imageSrc={{
@@ -140,12 +141,13 @@ export default function Home() {
           scaleX: "2",
           scaleY: "2",
         }}
+        hideIfMobile={true}
       />
       <PetsSection
         mainText="You already Know"
         subMainText="Useful Pet Knowledge"
         content={blogCardElements}
-        columns={3}
+        columns={width <= MAX_WIDTH_PHONE ? 1 : 3}   
       />
     </Container>
   );

@@ -9,6 +9,8 @@ import {
   customleftstyles,
   LeftSections,
 } from "@/components/Banner/LeftSection";
+import { useScreenDimensions } from "@/contexts/ScreenDimensionProvider";
+import { MAX_WIDTH_PHONE } from "@/constants";
 
 interface BannerSectionProps {
   imageSrc: {
@@ -20,6 +22,7 @@ interface BannerSectionProps {
   textContent?: React.ReactNode;
   rightStyle?: customrightstyles;
   leftStyle?: customleftstyles;
+  hideIfMobile?: boolean
 }
 
 const BannerSection = ({
@@ -29,10 +32,21 @@ const BannerSection = ({
   textContent,
   rightStyle,
   leftStyle,
+  hideIfMobile,
 }: BannerSectionProps) => {
+  const { width, height } = useScreenDimensions();
+
+  const rowOrColumn = () => {
+    if (width <= MAX_WIDTH_PHONE) {
+      return reverse ? "column-reverse" : "column-reverse";
+    } else {
+      return reverse ? "row-reverse" : "row";
+    }
+  };
+
   const styled: React.CSSProperties = {
-    display: "flex",
-    flexDirection: reverse ? "row-reverse" : "row",
+    display: hideIfMobile ? "none" : "flex",
+    flexDirection: rowOrColumn(),
     ...style,
   };
 

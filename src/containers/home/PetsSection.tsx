@@ -22,6 +22,7 @@ const PetsSection = ({
   style,
   hideIfMobile,
 }: PetsSectionProps) => {
+
   const gridStyle = {
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
     ...style,

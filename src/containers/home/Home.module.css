@@ -65,4 +65,10 @@
   .leftColumn {
     padding-left: 0px;
   }
+
+  .petsSection
+  {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
