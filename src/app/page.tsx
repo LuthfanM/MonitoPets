@@ -103,6 +103,7 @@ export default function Home() {
         content={sponsorCardElement}
         style={{ alignItems: "center" }}
         hideIfMobile={width <= MAX_WIDTH_PHONE ? true : false}
+        columns={sponsorCardElement.length}
       />
       <BannerSection
         imageSrc={{

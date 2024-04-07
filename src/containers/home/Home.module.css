@@ -71,4 +71,19 @@
     padding-left: 16px;
     padding-right: 16px;
   }
+
+  .heroSection .rightColumn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .rightColumn img {
+    min-width: 150%;
+    height: auto;
+    display: block;    
+    object-fit: contain;
+  }
 }
